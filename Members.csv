@@ -1,0 +1,11 @@
+#,MemberID,FirstName,LastName,DateOfBirth,Address,PhoneNumber,Email,MembershipDate
+1,1,John,Doe,1980-01-15,123 Elm Street,555-1234,john.doe@example.com,2023-01-01
+2,10,Ava ,Jackson,1993-05-12,707 Willow Street,555-8902,ava.jackson@example.com,2023-10-15
+3,2,Jane,Smith,1992-07-30,456 Oak Street,555-5678,jane.smith@example.com,2023-03-15
+4,3,Michael ,Johnson,1985-03-22,789 Pine Street,555-8765,michael.johnson@example.com,2023-03-10
+5,4,Emily ,Davis,1990-05-11,101 Maple Street,555-2345,emily.davis@example.com,2023-04-20
+6,5,Daniel ,Wilson,1983-06-17,202 Birch Street,555-3456,daniel.wilson@example.com,2023-05-25
+7,6,Sophia ,Moore,1995-09-10,303 Cedar Street,555-4567,sophia.moore@example.com,2023-06-05
+8,7,David,Taylor,1978-12-18,404 Walnut Street,555-5679,david.taylor@example.com,2025-07-18
+9,8,Olivia ,Anderson,1987-04-27,505 Ash Street,555-6780,olivia.anderson@example.com,2023-08-22
+10,9,James ,Thomas,1982-09-18,606 Cherry Street,555-7891,james.thomas@example.com,2023-09-30
