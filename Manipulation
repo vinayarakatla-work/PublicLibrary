@@ -1,0 +1,60 @@
+USE library;
+
+--Retrieve information about specifc member
+SELECT * FROM Members WHERE MemberID = 1;
+
+-- Books borrowed by a specific person
+SELECT Books.BookID, Books.Title,
+       Transactions.transactionID, Transactions.DateBorrowed,
+       Transactions.DueDate, Transactions.DateReturned,
+       Transactions.FineAmount
+from Transactions
+join Books on Transactions.BookID = Books.BookID
+where Transactions.MemberID=1
+
+
+-- Fine amount greater than 0 for specific book
+SELECT Books.BookID, Books.Title,
+       Transactions.transactionID, Transactions.DateBorrowed,
+       Transactions.DueDate, Transactions.DateReturned,
+       Transactions.FineAmount
+from Transactions
+         join Books on Transactions.BookID = Books.BookID
+where Transactions.FineAmount > 0
+ORDER BY  Transactions.FineAmount desc
+
+--Inserting new members
+INSERT INTO Members (MemberID,FirstName,LastName,DateOfBirth,Address,PhoneNumber,Email,MembershipDate)
+VALUES ('11','John','Doe','1990-01-01','123 Main Str','555-1212','Johndoe@example.com','2023-09-10');
+
+--Multiple books borrowed by a member
+SELECT Books.BookID, Books.Title, Transactions.DateBorrowed,
+       Transactions.DateReturned, Transactions.FineAmount, COUNT(Transactions.MemberID) AS MultipleBorrows
+FROM Transactions
+         JOIN Books ON Transactions.BookID = Books.BookID
+GROUP BY 1,2,3,4,5
+HAVING COUNT(Transactions.MemberID) > 1
+ORDER BY 3 DESC;
+
+-- Delete a specific member
+DELETE FROM Members WHERE MemberID = 1;
+
+
+-- Borrow count of specific books
+SELECT Books.Title,COUNT(Transactions.BookID) as borrowcount
+from  Transactions
+join Books on Books.BookID = Transactions.BookID
+group by Transactions.BookID
+order by borrowcount desc
+
+--List of staff who have handled more than 2 transactions
+
+SELECT Staff.FirstName,Staff.LastName,
+       count(Transactions.TransactionID) as BooksCount
+from Transactions
+join Staff on Transactions.StaffID = Staff.StaffID
+group by Staff.StaffID
+having BooksCount>2
+
+
+
